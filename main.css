@@ -1,0 +1,32 @@
+.memo-textarea {
+    resize: none;
+    height: auto;
+}
+
+a#new-memo {
+    margin-left: .75rem;
+}
+
+div.nav-wrapper {
+    font-size: 1.5rem;
+    margin-left: 2rem;
+}
+
+div.card {
+    cursor: pointer;
+}
+
+.preloader-background {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    opacity: 0.5;
+
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}

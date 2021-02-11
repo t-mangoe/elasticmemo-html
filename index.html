@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="utf-8">
+    <title>サイトタイトル</title>
+    <meta name="description" content="ディスクリプションを入力">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google icon font -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="main.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <!----- header----->
+    <!-- <header>ヘッダー</header> -->
+    <nav>
+        <div class="nav-wrapper">
+            Elasticsearchを使ったメモアプリ
+        </div>
+    </nav>
+    <!----- /header ----->
+
+    <!-- <h2>アプリ</h2> -->
+
+    <!-- <div class="row">
+        <div class="col s12 m6">
+            <div class="card blue-grey lighten-5">
+                <div class="card-content blue-grey-text text-darken-4">
+                    <span class="card-title">Card Title</span>
+                    <p>I am a very simple card. I am good at containing small bits of information.
+                        I am convenient because I require little markup to use effectively.</p>
+                </div>
+                <div class="card-action">
+                    <a href="#">This is a link</a>
+                    <a href="#">This is a link</a>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div id="card-area"></div>
+
+    <!-- Modal Trigger -->
+    <a id="new-memo" class="waves-effect waves-light btn modal-trigger" href="#modal1">新規作成</a>
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h4>メモを入力</h4>
+            <!-- <p>A bunch of text</p> -->
+
+            <div class="row">
+                <div class="input-field">
+                    <label for="memo-title">タイトル</label>
+                    <input type="text" id="memo-title" class="validate">
+                </div>
+                <div class="input-field">
+                    <textarea id="memo-text" rows="20" class="memo-textarea"></textarea>
+                    <!-- <textarea id="note" class="materialize-textarea" rows="10"></textarea> -->
+                </div>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <a id="memo-submit-link" href="" class="modal-close waves-effect waves-green btn">作成</a>
+        </div>
+
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <h4>メモを入力</h4>
+            <!-- <p>A bunch of text</p> -->
+
+            <div class="row">
+                <div class="input-field">
+                    <label for="memo-title">タイトル</label>
+                    <input type="text" id="edit-memo-title" class="validate">
+                </div>
+                <div class="input-field">
+                    <textarea id="edit-memo-text" rows="20" class="memo-textarea"></textarea>
+                    <!-- <textarea id="note" class="materialize-textarea" rows="10"></textarea> -->
+                </div>
+                <input type="hidden" id="edited-id">
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <a id="edit-submit-link" href="" class="modal-close waves-effect waves-green btn">編集</a>
+            <a id="delete-link" href="" class="modal-close waves-effect waves-light red btn">削除</a>
+        </div>
+
+    </div>
+
+    <div id="preloader" class="preloader-background">
+        <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-blue-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!----- footer ----->
+    <!-- <footer>フッター</footer> -->
+    <!----- /footer ----->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"
+        integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script src="http-client.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
