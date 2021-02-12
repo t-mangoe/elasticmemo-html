@@ -30,3 +30,8 @@ div.card {
     right: 0;
     bottom: 0;
 }
+
+#search-div {
+    width: 30%;
+    margin-left: 70%;
+}
