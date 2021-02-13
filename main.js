@@ -65,6 +65,20 @@ $(function () {
         });
     });
 
+    const $searchForm = $("#search-form");
+    $searchForm.submit(function (event) {
+        const $searchInput = $("#search-input");
+        const searchStr = $searchInput.val();
+        console.log("検索ワード：" + searchStr);
+
+        $searchInput.val("");
+        $searchInput.blur();
+
+        // 画面遷移を無効化
+        event.preventDefault();
+
+    });
+
     $("#preloader").css("display", "flex");
 
     const callback = function (data) {
