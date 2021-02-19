@@ -74,6 +74,8 @@ $(function () {
         $searchInput.val("");
         $searchInput.blur();
 
+        httpClient.search(searchStr);
+
         // 画面遷移を無効化
         event.preventDefault();
 

@@ -70,4 +70,25 @@ class HttpClient {
             console.log(err);
         });
     }
+
+    search(searchStr) {
+        $.ajax({
+            url: this.baseUrl + "_search?pretty",
+            type: "POST",
+            contentType: "application/json",
+            dataType: "json",
+            data: JSON.stringify({
+                query: {
+                    match: {
+                        message: searchStr
+                    }
+                }
+            })
+        }).done(function (data, status, xhr) {
+            console.log(data);
+        }).fail(function (xhr, status, err) {
+            console.log(err);
+
+        })
+    }
 }
