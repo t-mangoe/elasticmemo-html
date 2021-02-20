@@ -67,18 +67,22 @@ $(function () {
 
     const $searchForm = $("#search-form");
     $searchForm.submit(function (event) {
+        // 画面遷移を無効化
+        event.preventDefault();
+
         const $searchInput = $("#search-input");
         const searchStr = $searchInput.val();
         console.log("検索ワード：" + searchStr);
 
         $searchInput.val("");
         $searchInput.blur();
+        $searchInput.val(searchStr);
 
-        httpClient.search(searchStr);
+        const callback = function (data) {
+            initCard(data);
+        }
 
-        // 画面遷移を無効化
-        event.preventDefault();
-
+        httpClient.search(searchStr, callback);
     });
 
     $("#preloader").css("display", "flex");
@@ -93,8 +97,13 @@ $(function () {
 
 function initCard(data) {
     let hitsArray = data.hits.hits;
-    const $body = $("body");
     const $area = $("#card-area");
+    $area.empty();
+    if (!hitsArray.length) {
+        $area.append($("<div class='msg msg-error'>メモがありません</div>"));
+        return;
+    }
+
     for (const elem of hitsArray) {
         const $card = createCard(elem);
         $area.append($card);

@@ -71,7 +71,7 @@ class HttpClient {
         });
     }
 
-    search(searchStr) {
+    search(searchStr, callback) {
         $.ajax({
             url: this.baseUrl + "_search?pretty",
             type: "POST",
@@ -86,6 +86,7 @@ class HttpClient {
             })
         }).done(function (data, status, xhr) {
             console.log(data);
+            if (callback) callback(data);
         }).fail(function (xhr, status, err) {
             console.log(err);
 
