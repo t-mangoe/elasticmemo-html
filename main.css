@@ -9,6 +9,7 @@ a#new-memo {
 
 a#reset-search {
     display: none;
+    margin-left: .75rem;
 }
 
 div.nav-wrapper {

@@ -27,7 +27,7 @@ class HttpClient {
         });
     }
 
-    refreshLatest(callback) {
+    refreshLatest(successCb, errorCb) {
         $("#card-area").empty();
         $.ajax({
             url: "http://localhost:9200/my_index/_search",
@@ -42,9 +42,10 @@ class HttpClient {
             }),
         }).done(function (data, status, xhr) {
             console.log(data);
-            callback(data, status, xhr);
+            successCb(data, status, xhr);
         }).fail(function (xhr, status, err) {
             console.log(xhr);
+            errorCb(xhr, status, err);
         });
     }
 

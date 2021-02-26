@@ -91,6 +91,11 @@ $(function () {
         $("#preloader").hide();
     }
 
+    const errorCallback = function (xhr, status, err) {
+        $("#preloader").hide();
+        alert(error);
+    }
+
     const $searchResetLink = $("#reset-search");
     $searchResetLink.click(function (event) {
         // aタグクリックでの画面遷移を無効化
@@ -108,7 +113,7 @@ $(function () {
 
     $("#preloader").css("display", "flex");
 
-    httpClient.refreshLatest(callback);
+    httpClient.refreshLatest(callback, errorCallback);
 });
 
 function initCard(data) {
