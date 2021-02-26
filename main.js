@@ -80,17 +80,33 @@ $(function () {
 
         const callback = function (data) {
             initCard(data);
+            $("#reset-search").css("display", "inline-block");
         }
 
         httpClient.search(searchStr, callback);
     });
 
-    $("#preloader").css("display", "flex");
-
     const callback = function (data) {
         initCard(data);
         $("#preloader").hide();
     }
+
+    const $searchResetLink = $("#reset-search");
+    $searchResetLink.click(function (event) {
+        // aタグクリックでの画面遷移を無効化
+        event.preventDefault();
+
+        const $searchInput = $("#search-input");
+        $searchInput.val("");
+
+        // 検索リセットボタンを非表示にする
+        $("#reset-search").css("display", "none");
+
+        // カードを初期化し、元に戻す
+        httpClient.refreshLatest(callback);
+    });
+
+    $("#preloader").css("display", "flex");
 
     httpClient.refreshLatest(callback);
 });

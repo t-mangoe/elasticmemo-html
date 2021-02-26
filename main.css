@@ -7,6 +7,10 @@ a#new-memo {
     margin-left: .75rem;
 }
 
+a#reset-search {
+    display: none;
+}
+
 div.nav-wrapper {
     font-size: 1.5rem;
     margin-left: 2rem;
